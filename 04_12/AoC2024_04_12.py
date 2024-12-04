@@ -27,7 +27,6 @@ XMAS_times = 0
 for _ in range(2):
     # find non-diagnonals
     for row in letters_ar:
-        # print(''.join(row))
         XMAS_times += len(re.findall(r'XMAS', ''.join(row)))
         XMAS_times += len(re.findall(r'SAMX', ''.join(row)))
     # find diagonals:
@@ -62,13 +61,10 @@ else:
     for i in range(y - 2):
         for j in range(x - 2):
             subarray = ma.array([letters_ar[i:i + 3, j:j + 3]], mask=m)
-            # print(subarray)
             for _ in range(4):
                 if ma.allequal(X_MAS, subarray):
                     X_MAS_times += 1
                 X_MAS = np.rot90(X_MAS)
-            # if ma.allequal(X_MAS_rev, subarray):  X_MAS_times += 1
-# letters_ar = np.rot90(letters_ar)
 
 print(f'X-MAS appears {X_MAS_times} times.')
 #%%
